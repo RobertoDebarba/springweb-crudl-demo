@@ -1,0 +1,26 @@
+#tabela-dados {
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+#tabela-dados td {
+    border: 1px solid;
+}
+
+table {
+    width: 100%;
+}
+
+#coluna-botoes {
+    width: 100px;
+    text-align: center;
+}
+
+button {
+    width: 80px;
+    margin-bottom: 5px;
+}
+
+#formNovo {
+    display: none;
+}

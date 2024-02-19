@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEDUP</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <span id="titulo-pagina">Minha página</span>
+    <button onclick="clickNovo();">Novo</button> <br />
+    <table>
+        <tr>
+            <td><!--Coluna da tabela de dados-->
+                <table id="tabela-dados">
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Ações</th>
+                    </tr>
+                </table>
+                <div id="formNovo">
+                    <br />
+                    <hr>
+                    Nome: <input id="input-nome" type="text" /> <br />
+                    Idade: <input id="input-idade" type="number" /> <br />
+                    <button onclick="salvar()">Salvar</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script src="script.js"></script>
+    <script src="pessoa-api.js"></script>
+</body>
+</html>

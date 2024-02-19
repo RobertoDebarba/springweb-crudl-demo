@@ -1,0 +1,222 @@
+openapi: "3.0.3"
+info:
+  title: "trabalho1 API"
+  description: "trabalho1 API"
+  version: "1.0.0"
+servers:
+  - url: "http://localhost:8080/"
+paths:
+  /login/:
+    post:
+      summary: "POST login/"
+      operationId: "login"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginDTO"
+        required: true
+      responses:
+        "401":
+          description: "Usuário ou senha inválidos"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+                description: "token"
+  /pessoa/:
+    get:
+      summary: "GET pessoa/"
+      operationId: "getPessoas"
+      parameters:
+        - name: "nome"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+        - name: "idademin"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int32"
+        - name: "idademax"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int32"
+        - name: "Authorization"
+          in: "header"
+          required: true
+          schema:
+            type: "string"
+            description: "token"
+      responses:
+        "401":
+          description: "token inválido"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/PessoaDTO"
+    post:
+      summary: "POST pessoa/"
+      operationId: "postPessoa"
+      parameters:
+        - name: "Authorization"
+          in: "header"
+          required: true
+          schema:
+            type: "string"
+            description: "token"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PessoaDTO"
+        required: true
+      responses:
+        "401":
+          description: "token inválido"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PessoaDTO"
+  /pessoa/byIdade:
+    get:
+      summary: "GET pessoa/byIdade"
+      operationId: "getPessoasByIdade"
+      parameters:
+        - name: "idade"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int32"
+        - name: "Authorization"
+          in: "header"
+          required: true
+          schema:
+            type: "string"
+            description: "token"
+      responses:
+        "401":
+          description: "token inválido"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/PessoaDTO"
+  /pessoa/{id}:
+    get:
+      summary: "GET pessoa/{id}"
+      operationId: "getPessoa"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+        - name: "Authorization"
+          in: "header"
+          required: true
+          schema:
+            type: "string"
+            description: "token"
+      responses:
+        "401":
+          description: "token inválido"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PessoaDTO"
+    put:
+      summary: "PUT pessoa/{id}"
+      operationId: "putPessoa"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+        - name: "Authorization"
+          in: "header"
+          required: true
+          schema:
+            type: "string"
+            description: "token"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PessoaDTO"
+        required: true
+      responses:
+        "401":
+          description: "token inválido"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PessoaDTO"
+    delete:
+      summary: "DELETE pessoa/{id}"
+      operationId: "deletePessoa"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+        - name: "Authorization"
+          in: "header"
+          required: true
+          schema:
+            type: "string"
+            description: "token"
+      responses:
+        "401":
+          description: "token inválido"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/PessoaDTO"
+components:
+  schemas:
+    LoginDTO:
+      type: "object"
+      properties:
+        usuario:
+          type: "string"
+        senha:
+          type: "string"
+    PessoaDTO:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        nome:
+          type: "string"
+        idade:
+          type: "integer"
+          format: "int32"
