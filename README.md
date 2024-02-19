@@ -1,4 +1,4 @@
-# JavaFX CRUDL demo desktop application
+# Spring WEB CRUDL teaching application
 
 WEB application developed in Java, Spring, MySQL, REST and JavaScript vanilla.
 This application was developed in my programming classes, with teaching/education purposes.
@@ -10,8 +10,8 @@ Contains:
 * Frontend WEB
 * Authentication with token and localstorage
 
-<img src="https://github.com/RobertoDebarba/springweb-crudl-demo/blob/main/screenshot/tela-principal.png" width="500" width="auto">
-<img src="https://github.com/RobertoDebarba/springweb-crudl-demo/blob/main/screenshot/tela-login.png" width="500" width="auto">  
+<img src="https://github.com/RobertoDebarba/springweb-crudl-demo/blob/main/screenshot/tela-principal.png" width="650" width="auto">
+<img src="https://github.com/RobertoDebarba/springweb-crudl-demo/blob/main/screenshot/tela-login.png" width="650" width="auto">  
 
 ## Endpoints
 
